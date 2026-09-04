@@ -1,0 +1,39 @@
+Un sensor (botón) del tipo binario genera 2 EVENTOS (EV) que reflejan el valor binario asociado a la posición y al menos 2 acciones. 
+Las posiciones consisten en not pressed/pressed que funcionan como triggers (EV) para el modelo Sensor. 
+
+
+EV_BTN_UP = not pressed
+EV_BTN_FALLING = pressed
+EV_BTN_DOWN = pressed
+EV_BTN_RISING = not pressed
+
+
+EV_SYS_ON = 1
+EV_SYS_OFF = 0
+
+
+ST_BTN_UP = not pressed 
+ST_BTN_FALLING =  pressed
+ST_BTN_DOWN = pressed
+ST_BTN_RISING = not pressed
+
+
+tick // 0 
+DEL_BTN_UP = 1 ms
+DEL_BTN_FALLING =  1 ms
+DEL_BTN_DOWN = 1 ms
+DEL_BTN_RISING = 1 ms
+
+Pensando al botón activo a masa, es decir, activo en alto. Es decir, presionando el botón se cierra el circuito dando una señal 0 que la negamos para que sea un 1.
+Tomamos un retardo de la verificación de datos de un 1ms para confirmar la acción de presionado y no presionado. 
+
+| Sensor Statechart - State Transition Table |
+| Current State | Event | [Guard] | Next State | Action |
+| :----- | :------: | :------: | :-------: | :-------: |
+| ST_BTN_UP  | not pressed |  | ST_BTN_FALLING | tick = 0 |
+| ST_BTN_FALLING  | not pressed |  | ST_BTN_UP  | tick = 0 |
+| ST_BTN_FALLING  | pressed | [tick >= DEL_BTN_FALLING ]| ST_BTN_DOWN | ST_BTN_DOWN  |
+| ST_BTN_DOWN  | pressed |  | ST_BTN_RISING | tick = 0|
+| ST_BTN_RISING  | pressed |  | ST_BTN_DOWN | tick = 0|
+| ST_BTN_RISING | not pressed| [tick >= DEL_BTN_RISING ] | ST_BTN_UP  | ST_BTN_UP |
+
