@@ -23,9 +23,9 @@ Con este trabajo se busca realizar un prototipo o MVP de la máquina expendedora
 
 
 ## Módulos para implementar en código C (los mismos se ejecutarán cada 1ms)
-  - **Sensor**: Encargado de la etapa de "escrutar" (Scrutinize), leyendo los digital inputs y los valida.  
-  - **System**: Encargado de "procesar" (Process), procesa los eventos válidados por el módulo **Sensor** y toma decisiones sobre las acciones a tomar.    
-  - **Actuator**: Encargado de "actuar" (Act), realiza los comandos en la salida de acuerdo a lo decidido por **System**.
+  - **Sensor**: Encargado de la etapa de "escrutar" (Scrutinize), lee los digital inputs, detecta y valida los cambios producidos.  
+  - **System**: Encargado de "procesar" (Process), procesa los eventos validados por el módulo **Sensor** y toma decisiones sobre las acciones a tomar en el sistema.    
+  - **Actuator**: Encargado de "actuar" (Act), ejecuta acciones sobre las salidas determinadas por **System**.
  
 
 ## Analogías para el prototipo:
