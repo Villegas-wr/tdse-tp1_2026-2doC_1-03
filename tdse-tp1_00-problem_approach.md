@@ -7,7 +7,7 @@ Plantea la siguiente secuencia de solución:
 2. El conductor presiona el botón, se le imprime un ticket y luego sube la barrera
 3. Auto entra al estacionamiento
 4. Baja la barrera
-5. A la hora de la salida, el conductor se acerca a la Central chasier station para pagar el estacionamiento
+5. A la hora de la salida, el conductor se acerca a la Central Chasier Station para pagar el estacionamiento
 6. Confirmado el pago, se le valida su ticket para salida con un tiempo de gracia
 7. Auto se acerca a la terminal de salida con el ticket
 8. Ticket leído por terminal y sube la barrera
@@ -17,7 +17,7 @@ Plantea la siguiente secuencia de solución:
 ## Implementación de Parking Ticket Dispenser Machine (Entry)
 Con este trabajo se busca realizar un prototipo o MVP de la máquina expendedora de tickets de entrada que consiste en:
 
-  1.  El vehículo llega y su presencia es detectado por la cámara.
+  1.  El vehículo llega y su presencia es detectada por la cámara.
   2.  El usuario presiona un botón, lo que acciona la impresión del ticket y envía la señal para subir la barrera.
   3.  El vehículo ingresa y abandona el área del sensor, la barrera se cierra de manera automática.
 
