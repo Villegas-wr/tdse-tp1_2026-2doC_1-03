@@ -27,6 +27,9 @@ tick: Contador incrementado en cada llamada temporizada de 1 ms.
 DEL_BTN_FALLING: Ventana temporal de retardo (ej. 20 ms) requerida para validar la transición a presionado.  
 DEL_BTN_RISING: Ventana temporal de retardo (ej. 20 ms) requerida para validar la transición a no presionado.
 
+
+Tabla de Estados y Excitaciones
+
 |                                Sensor Statechart - State Transition Table                               |
 |      Current     |   State Event   | 	         [Guard]	           |     Next State	    |    Actions    |
 |     ST_BTN_UP	   |   EV_BTN_DOWN	 |              -	               |   ST_BTN_FALLING   |	   tick = 0   |
@@ -37,6 +40,13 @@ DEL_BTN_RISING: Ventana temporal de retardo (ej. 20 ms) requerida para validar l
 |   ST_BTN_DOWN	   |  EV_BTN_DOWN	   |               -	             |    ST_BTN_DOWN	    |       -       |
 |  ST_BTN_RISING	 |    EV_BTN_UP	   |   [tick >= DEL_BTN_RISING]	   |     ST_BTN_UP	    |   EV_SYS_OFF  |
 |  ST_BTN_RISING	 |   EV_BTN_DOWN	 |   [tick < DEL_BTN_RISING]	   |    ST_BTN_DOWN	    |       -       |
+
+Descripciones:
+ST_BTN_UP: En estado de reposo, si se detecta que el botón pasa a nivel presionado (EV_BTN_DOWN), se transiciona a ST_BTN_FALLING y se reinicia el contador tick = 0.  
+ST_BTN_FALLING: Permanece evaluando la señal durante la ventana de tiempo. Si la señal se mantiene presionada y se alcanza el tiempo guardián DEL_BTN_FALLING (ej. 20 ms), 
+se confirma la pulsación, transicionando a ST_BTN_DOWN y emitiendo la señal EV_SYS_ON al modelo System. Si la lectura vuelve a EV_BTN_UP antes de tiempo (un rebote o glitch), se descarta regresando a ST_BTN_UP.  
+ST_BTN_DOWN: Estado estable presionado. Al detectar la liberación (EV_BTN_UP), pasa a ST_BTN_RISING y reinicia el contador tick = 0.  
+ST_BTN_RISING: Si la liberación se mantiene hasta alcanzar DEL_BTN_RISING, transiciona a ST_BTN_UP y genera la acción EV_SYS_OFF.
 
 v-----------------------------------------------------------(Old)-------------------------------------------------------------v
 
