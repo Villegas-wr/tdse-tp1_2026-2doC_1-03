@@ -1,5 +1,5 @@
 v-----------------------------------------------------------(New)-------------------------------------------------------------v
-
+Descripción del módulo "Sensor":
 El módulo Sensor implementa una tarea no bloqueante ejecutada periódicamente cada 1 ms (Update by Time Code) para escrutar el estado de entrada de un botón. 
 Su función principal es realizar el filtrado mecánico de rebotes (debouncing) antes de notificar un evento válido al módulo System.
 
