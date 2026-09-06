@@ -38,4 +38,4 @@ Descripciones:
 señal EV_ACT_ON para activar la salida correspondiente.
 - ST_SYS_ACTIVE: Permanece activo mientras el evento persista. Al recibir EV_SYS_OFF (sensor liberado), transiciona a ST_SYS_WAITING e inicializa el contador de tiempo tick = 0.
 - ST_SYS_WAITING: Introduce un retardo o tiempo de gracia no bloqueante. Si finaliza el tiempo estipulado [tick >= DEL_SYS_TIMEOUT], transiciona a ST_SYS_IDLE y envía el comando
-- EV_ACT_OFF al actuador. Si el sensor se activa nuevamente antes de expirar el temporizador, regresa a ST_SYS_ACTIVE.  
+EV_ACT_OFF al actuador. Si el sensor se activa nuevamente antes de expirar el temporizador, regresa a ST_SYS_ACTIVE.  
