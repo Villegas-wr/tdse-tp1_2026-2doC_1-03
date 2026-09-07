@@ -1,6 +1,73 @@
-Descripción del módulo System
-El módulo System implementa la lógica de procesamiento del sistema de estacionamiento. Se ejecuta mediante una tarea temporizada no bloqueante cada 1 ms (Update by Time Code). 
-Su objetivo principal es interpretar las señales (eventos) emitidas por el módulo Sensor y generar las acciones o señales dirigidas hacia el módulo Actuator.
+------ new ---------
+
+# Descripción del módulo System
+El módulo **System** implementa la lógica de procesamiento del sistema de estacionamiento. Se ejecuta mediante una tarea temporizada no bloqueante cada 1 ms (Update by Time Code). Su objetivo principal es interpretar las señales (eventos) emitidas por el módulo **Sensor** y generar las acciones o señales dirigidas hacia el módulo **Actuator**.
+
+
+## Estados (ST_SYS_NAME)
+- **ST_SYS_IDLE:** Estado de reposo o espera del sistema, no hay auto al cuál procesar.
+- **ST_SYS_WAITING_BUTTON:** Auto detectado y el sistema en espera de que el botón sea presionado.
+- **ST_SYS_WAITING_CAR:** Ticket solicitado y apertura de barrera, el sistema en espera a que el auto avance hasta ser detectado por el sensor coil.
+- **ST_SYS_CAR_PASSING:** Sensor coil detecta el auto, el sistema espera a que el auto abandone la zona de detección.
+
+
+
+## Eventos de entrada (EV_SYS_NAME)
+
+### Button
+- **EV_SYS_BUTTON_PRESSED:** Señal del botón indicando que ha sido presionado.
+- **EV_SYS_BUTTON_RELEASED:** Señal del botón indicando que ha sido liberado o no presionado.
+
+### Camera
+- **EV_SYS_CAMERA_DETECTED:** Señal de la cámara indicando que ha detectado el auto en la entrada.
+- **EV_SYS_CAMERA_CLEARED:** Señal de la cámara indicando que ha dejado de detectar el auto (ausencia de presencia) en la entrada.
+
+### Sensor coil
+- **EV_SYS_COIL_DETECTED:** Señal del sensor indicando que ha detectado el auto en la zona de paso de la barrera.
+- **EV_SYS_COIL_CLEARED:** Señal del sensor indicando que el auto ha abandonado la zona de detección.
+
+
+
+## Señales/Acciones hacia Actuator (EV_ACT_NAME)
+
+### Display
+- **EV_ACT_WELCOME:** Acción de mostrar mensaje de bienvenida al conductor.
+  
+### Printer
+- **EV_ACT_PRINT_TICKET:** Acción de imprimir ticket de parking.
+  
+### Barrier
+- **EV_ACT_OPEN_BARRIER:** Acción de apertura la barrera.
+- **EV_ACT_CLOSE_BARRIER:** Acción de cierre la barrera.
+  
+### Server
+- **EV_ACT_CAR_INSIDE:** Acción de notificación al servidor de que el ingreso del auto ha sido completado.
+  
+  
+## Variables de Control y Tiempos (timer)
+not yet...
+
+
+
+# Tabla de estado y excitaciones
+
+| Current State | Event | [Guard] | Next State | Actions |
+| :--- | :--- | :--- | :--- | :--- |
+| `ST_SYS_IDLE` | `EV_SYS_ON` | - | `ST_SYS_ACTIVE` | `EV_ACT_ON` |
+| `ST_SYS_IDLE` | `EV_SYS_OFF` | - | `ST_SYS_IDLE` | - |
+| `ST_SYS_ACTIVE` | `EV_SYS_OFF` | - | `ST_SYS_WAITING` | `tick = 0` |
+| `ST_SYS_ACTIVE` | `EV_SYS_ON` | - | `ST_SYS_ACTIVE` | - |
+| `ST_SYS_WAITING` | `EV_SYS_ON` | - | `ST_SYS_ACTIVE` | - |
+| `ST_SYS_WAITING` | - | `[tick >= DEL_SYS_TIMEOUT]` | `ST_SYS_IDLE` | `EV_ACT_OFF` |
+
+
+
+
+--------- old ---------
+
+# Descripción del módulo System
+El módulo **System** implementa la lógica de procesamiento del sistema de estacionamiento. Se ejecuta mediante una tarea temporizada no bloqueante cada 1 ms (Update by Time Code). Su objetivo principal es interpretar las señales (eventos) emitidas por el módulo **Sensor** y generar las acciones o señales dirigidas hacia el módulo **Actuator**.
+
 
 Estados (ST_SYS_NAME)
 - ST_SYS_IDLE: Estado de reposo o espera del sistema (ej. aguardando llegada de un vehículo o pulsación).
