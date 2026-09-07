@@ -16,8 +16,8 @@ El módulo **Sensor** implementa una tarea no bloqueante ejecutada periódicamen
 
 - **ST_BTN_UP:** Botón estabilizado en reposo (not pressed). 
 - **ST_BTN_DOWN:** Botón estabilizado en estado presionado (pressed).
-- **ST_BTN_FALLING:** Detección de flanco de bajada / inicio de presión (not pressed); estado de espera para filtrado de rebotes (1 -> 0).    
-- **ST_BTN_RISING:** Detección de flanco de subida / inicio de liberación (pressed); estado de espera para filtrado de rebotes (0 -> 1).
+- **ST_BTN_FALLING:** Detección de flanco de bajada / inicio de presión (not pressed); estado de espera para filtrado de rebotes (1 - 0).    
+- **ST_BTN_RISING:** Detección de flanco de subida / inicio de liberación (pressed); estado de espera para filtrado de rebotes (0 - 1).
 
 ### Eventos de Entrada / Excitaciones (EV_BTN_NAME)
 
