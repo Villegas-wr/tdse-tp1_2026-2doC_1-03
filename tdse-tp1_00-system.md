@@ -9,8 +9,6 @@ El módulo **System** implementa la lógica de procesamiento del sistema de esta
 - **ST_SYS_WAITING_BUTTON:** Auto detectado y el sistema en espera de que el botón sea presionado.
 - **ST_SYS_WAITING_CAR:** Ticket solicitado y apertura de barrera, el sistema en espera a que el auto avance hasta ser detectado por el sensor coil.
 - **ST_SYS_CAR_PASSING:** Sensor coil detecta el auto, el sistema espera a que el auto abandone la zona de detección.
-- **ST_SYS_CAR_IN:** Auto dentro del estacionamiento.
-
 
 
 ## Eventos de entrada (EV_SYS_NAME)
@@ -38,8 +36,8 @@ El módulo **System** implementa la lógica de procesamiento del sistema de esta
 - **EV_ACT_PRINT_TICKET:** Acción de imprimir ticket de parking.
   
 ### Barrier
-- **EV_ACT_OPEN_BARRIER:** Acción de apertura la barrera.
-- **EV_ACT_CLOSE_BARRIER:** Acción de cierre la barrera.
+- **EV_ACT_OPEN_BARRIER:** Acción de apertura de la barrera.
+- **EV_ACT_CLOSE_BARRIER:** Acción de cierre de la barrera.
   
 ### Server
 - **EV_ACT_CAR_INSIDE:** Acción de notificación al servidor de que el ingreso del auto ha sido completado.
@@ -55,19 +53,17 @@ not yet...
 | Current State | Event | [Guard] | Next State | Actions |
 | :--- | :--- | :--- | :--- | :--- |
 | `ST_SYS_IDLE` | `EV_SYS_BUTTON_PRESSED` | - | `ST_SYS_IDLE` | - |
-| `ST_SYS_IDLE` | `EV_SYS_BUTTON_REALEASED` | - | `ST_SYS_IDLE` | - |
+| `ST_SYS_IDLE` | `EV_SYS_BUTTON_RELEASED` | - | `ST_SYS_IDLE` | - |
 | `ST_SYS_IDLE` | `EV_SYS_CAMERA_DETECTED` | - | `ST_SYS_WAITING_BUTTON` | `EV_ACT_WELCOME` |
 | `ST_SYS_IDLE` | `EV_SYS_CAMERA_CLEARED` | - | `ST_SYS_IDLE` | - |
 | `ST_SYS_IDLE` | `EV_SYS_COIL_DETECTED` | - | `ST_SYS_IDLE` | - |
 | `ST_SYS_IDLE` | `EV_SYS_COIL_CLEARED`  | - | `ST_SYS_IDLE` | - |
 | `ST_SYS_WAITING_BUTTON` | `EV_SYS_BUTTON_PRESSED` | - | `ST_SYS_WAITING_CAR` | `EV_ACT_OPEN_BARRIER`, `EV_ACT_PRINT_TICKET` |
-| `ST_SYS_WAITING_BUTTON` | `EV_SYS_BUTTON_REALEASED` | - | `ST_SYS_WAITING_BUTTON` | - |
-| `ST_SYS_WAITING_CAR` | `EV_SYS_CAMERA_DETECTED` | - | `ST_SYS_WAITING_CAR` | - |
-| `ST_SYS_WAITING_CAR` | `EV_SYS_CAMERA_CLEARED` | - | `ST_SYS_CAR_PASSING` | ? |
-| `ST_SYS_WAITING_CAR` | `EV_SYS_COIL_DETECTED` | - | `ST_SYS_CAR_PASSING` | ? |
+| `ST_SYS_WAITING_BUTTON` | `EV_SYS_BUTTON_RELEASED` | - | `ST_SYS_WAITING_BUTTON` | - |
+| `ST_SYS_WAITING_CAR` | `EV_SYS_COIL_DETECTED` | - | `ST_SYS_CAR_PASSING` | - |
 | `ST_SYS_WAITING_CAR` | `EV_SYS_COIL_CLEARED` | - | `ST_SYS_WAITING_CAR` | - |
 | `ST_SYS_CAR_PASSING` | `EV_SYS_COIL_DETECTED` | - | `ST_SYS_CAR_PASSING` | - |
-| `ST_SYS_CAR_PASSING` | `EV_SYS_COIL_CLEARED` | - | `ST_SYS_CAR_IN` | `EV_ACT_CLOSE_BARRIER`,  `EV_ACT_CAR_INSIDE` |
+| `ST_SYS_CAR_PASSING` | `EV_SYS_COIL_CLEARED` | - | `ST_SYS_IDLE` | `EV_ACT_CLOSE_BARRIER`,  `EV_ACT_CAR_INSIDE` |
 
 
 
