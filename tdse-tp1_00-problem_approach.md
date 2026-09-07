@@ -7,7 +7,7 @@ Plantea la siguiente secuencia de solución:
 2. El conductor presiona el botón, se le imprime un ticket y luego sube la barrera
 3. Auto entra al estacionamiento
 4. Baja la barrera
-5. A la hora de la salida, el conductor se acerca a la Central Chasier Station para pagar el estacionamiento
+5. A la hora de la salida, el conductor se acerca a la Central Cashier Station para pagar el estacionamiento
 6. Confirmado el pago, se le valida su ticket para salida con un tiempo de gracia
 7. Auto se acerca a la terminal de salida con el ticket
 8. Ticket leído por terminal y sube la barrera
