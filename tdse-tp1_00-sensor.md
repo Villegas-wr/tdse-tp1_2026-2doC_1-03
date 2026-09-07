@@ -41,12 +41,12 @@ El tick o clock es un contador que va incrementado en cada llamada temporizada d
 | :--- | :--- | :--- | :--- | :--- |
 | `ST_BTN_UP` | `EV_BTN_DOWN` | - | `ST_BTN_FALLING` | `tick = 0` |
 | `ST_BTN_UP` | `EV_BTN_UP` | - | `ST_BTN_UP` | - |
-| `ST_BTN_FALLING` | `EV_BTN_DOWN` | `[tick >= DEL_BTN_FALLING]` | `ST_BTN_DOWN` | `EV_SYS_ON` |
-| `ST_BTN_FALLING` | `EV_BTN_UP` | `[tick < DEL_BTN_FALLING]` | `ST_BTN_UP` | - |
+| `ST_BTN_FALLING` | `EV_BTN_DOWN` | `[tick >= DEL_BTN_FALLING]` | `ST_BTN_DOWN` | `EV_SYS_PRESSED` |
+| `ST_BTN_FALLING` | `EV_BTN_UP` | - | `ST_BTN_UP` | - |
 | `ST_BTN_DOWN` | `EV_BTN_UP` | - | `ST_BTN_RISING` | `tick = 0` |
 | `ST_BTN_DOWN` | `EV_BTN_DOWN` | - | `ST_BTN_DOWN` | - |
-| `ST_BTN_RISING` | `EV_BTN_UP` | `[tick >= DEL_BTN_RISING]` | `ST_BTN_UP` | `EV_SYS_OFF` |
-| `ST_BTN_RISING` | `EV_BTN_DOWN` | `[tick < DEL_BTN_RISING]` | `ST_BTN_DOWN` | - |
+| `ST_BTN_RISING` | `EV_BTN_UP` | `[tick >= DEL_BTN_RISING]` | `ST_BTN_UP` | `EV_SYS_RELEASED` |
+| `ST_BTN_RISING` | `EV_BTN_DOWN` | - | `ST_BTN_DOWN` | - |
 
 Descripciones:
 - ST_BTN_UP: En estado de reposo, si se detecta que el botón pasa a nivel presionado (EV_BTN_DOWN), se transiciona a ST_BTN_FALLING y se reinicia el contador tick = 0.  
