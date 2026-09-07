@@ -1,4 +1,5 @@
-Descripción del módulo "Actuator":
+# Descripción del módulo "Actuator"
+
 El módulo Actuator controla el estado de la barrera de acceso utilizando tres salidas digitales representadas por LEDs (Rojo, Amarillo y Verde). 
 Se ejecuta de forma no bloqueante cada 1 ms (Update by Time Code) para gestionar la activación de los LEDs y el tiempo que toma la transición física de apertura o cierre.
 
