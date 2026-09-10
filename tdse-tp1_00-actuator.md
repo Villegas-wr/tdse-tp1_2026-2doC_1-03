@@ -8,14 +8,14 @@ El módulo **Actuator** implementa el control de una salida digital representada
 
 - **ST_LED_OFF:** Led apagado.
 - **ST_LED_ON:** Led encendido.
-- **ST_LED_BLINKING:** Led alterana periódicamente entre encendido y apagado.
+- **ST_LED_BLINKING:** Led alterna periódicamente entre encendido y apagado.
 
 
 ## Eventos de entrada (EV_LED_NAME)
 
 - **EV_LED_OFF:** Solicitud para mantener el led apagado.
 - **EV_LED_ON:** Solicitud para mantener el led encendido.
-- **EV_LED_BLINKING:** Solicitud para mantener el led alterana periódicamente entre encendido y apagado.
+- **EV_LED_BLINK:** Solicitud para mantener el led alterna periódicamente entre encendido y apagado.
 
 
 ## Acciones 
@@ -27,20 +27,29 @@ El módulo **Actuator** implementa el control de una salida digital representada
 ## Variables de Control y Tiempos (timer)
 - **tick:** Contador de tiempo incrementado periódicamente cada 1 ms en el ciclo de ejecución, utilizado para controlar la temporización del LED.
 - **DEL_ACT_BLINK:** Tiempo de alternancia para el parpadeo del LED.
-- **led_state:** Variable que almacena la salida actual de **ST_LED_BLINKING**.
+- **led_state:** Variable que almacena el estado actual de la salida durante **ST_LED_BLINKING**.
 
 # Tabla de Estados y Excitaciones del modelo Actuator
 
 | Current State | Event | [Guard] | Next State | Actions |
 | :--- | :--- | :--- | :--- | :--- |
-| `ST_ACT_DOWN` | `EV_ACT_OPEN` | - | `ST_ACT_RAISING` | `tick = 0,`<br>`tick_blink = 0,`<br>`set_leds(OFF, ON, OFF)` |
-| `ST_ACT_DOWN` | `EV_ACT_CLOSE` | - | `ST_ACT_DOWN` | - |
-| `ST_ACT_RAISING` | - | `[tick < DEL_ACT_TRANSITION]` | `ST_ACT_RAISING` | `[tick_blink >= DEL_ACT_BLINK]`<br>`-> toggle_yellow_led()` <br>`, tick_blink = 0` |
-| `ST_ACT_RAISING` | - | `[tick >= DEL_ACT_TRANSITION]` | `ST_ACT_UP` | `set_leds(OFF, OFF, ON)` |
-| `ST_ACT_UP` | `EV_ACT_CLOSE` | - | `ST_ACT_LOWERING` | `tick = 0,`<br>`tick_blink = 0,`<br>`set_leds(OFF, ON, OFF)` |
-| `ST_ACT_UP` | `EV_ACT_OPEN` | - | `ST_ACT_UP` | - |
-| `ST_ACT_LOWERING` | - | `[tick < DEL_ACT_TRANSITION]` | `ST_ACT_LOWERING` | `[tick_blink >= DEL_ACT_BLINK]`<br>`-> toggle_yellow_led()` <br>`, tick_blink = 0` |
-| `ST_ACT_LOWERING` | - | `[tick >= DEL_ACT_TRANSITION]` | `ST_ACT_DOWN` | `set_leds(ON, OFF, OFF)` |
+| `ST_LED_OFF` | `EV_LED_OFF` | - | `ST_LED_OFF` | - |
+| `ST_LED_OFF` | `EV_LED_ON` | - | `ST_LED_ON` | `LED_ON` |
+| `ST_LED_OFF` | `EV_LED_BLINK` | - | `ST_LED_BLINKING` | `LED_ON`, tick = 0, led_state = ON  |
+| `ST_LED_ON` | `EV_LED_OFF` | - | `ST_LED_OFF` | `LED_OFF` |
+| `ST_LED_ON` | `EV_LED_ON` | - | `ST_LED_ON` | - |
+| `ST_LED_ON` | `EV_LED_BLINK` | - | `ST_LED_BLINKING`  | tick = 0, led_state = ON |
+| `ST_LED_BLINKING` | `EV_LED_OFF` | - | `ST_LED_OFF` | `LED_OFF` |
+| `ST_LED_BLINKING` | `EV_LED_ON` | - | `ST_LED_ON`| `LED_ON` |
+| `ST_LED_BLINKING` |  `EV_LED_BLINK` | - | `ST_LED_BLINKING` | - |
+| `ST_LED_BLINKING` | - | [tick >= DEL_ACT_BLINK && led_state == ON] | `ST_LED_BLINKING` | `LED_OFF`, led_state = OFF, tick = 0 |
+| `ST_LED_BLINKING` | - | [tick >= DEL_ACT_BLINK && led_state == OFF] | `ST_LED_BLINKING` | `LED_ON`, led_state = ON, tick = 0 |
+
+
+`ST_LED_BLINKING` + `EV_LED_BLINK` → `ST_LED_BLINKING` significa que si mientras parpadea el LED y le llega el evento de seguir parpareando no necesita una acción de reiniciar el ciclo, ya que continuará la acción previa. 
+
+`ST_LED_BLINKING` + [tick >= DEL_ACT_BLINK && led_state == ON] → `ST_LED_BLINKING`/ `LED_OFF`, led_state = OFF, tick = 0  significa que mientras parpadea llega al estado ON y el tiempo se cumplió cambia de estado OFF, entonces luego con `ST_LED_BLINKING` + [tick >= DEL_ACT_BLINK && led_state == OFF] → `ST_LED_BLINKING`/`LED_ON`, led_state = ON, tick = 0 realiza lo inverso produciendo un ciclo de parpadeo periódico. 
+
 
 
 -------------- old ------------
