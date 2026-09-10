@@ -1,3 +1,19 @@
+------------- New ------------
+# Descripción del módulo "Actuator"
+
+El módulo **Actuator** implementa el control de una salida digital representada usando un LED, por ejemplo: display, printer, barrier y server. Se ejecuta mediante una tarea temporizada <ins> no bloqueante </ins> (Update by Time Code) permitiendo la gestión de la actividad del LED.
+
+
+- **ST_LED_OFF:**
+- **ST_LED_ON:**
+- **ST_LED_BLINKING:**
+- **ST_LED_PULSE:**
+
+
+
+
+-------------- old ------------
+
 # Descripción del módulo "Actuator"
 
 El módulo Actuator controla el estado de la barrera de acceso utilizando tres salidas digitales representadas por LEDs (Rojo, Amarillo y Verde). 
