@@ -4,14 +4,19 @@
 El módulo **Actuator** implementa el control de una salida digital representada usando un LED, por ejemplo: display, printer, barrier y server. Se ejecuta mediante una tarea temporizada <ins> no bloqueante </ins> (Update by Time Code) permitiendo la gestión de la actividad del LED.
 
 
+## Estados (ST_BTN_NAME):
+
 - **ST_LED_OFF:**
 - **ST_LED_ON:**
 - **ST_LED_BLINKING:**
 - **ST_LED_PULSE:**
 
 
+## Eventos de entrada (EV_LED_NAME)
 
+## Acciones (EV_ACT_NAME)
 
+## Variables de Control y Tiempos (timer)
 -------------- old ------------
 
 # Descripción del módulo "Actuator"
