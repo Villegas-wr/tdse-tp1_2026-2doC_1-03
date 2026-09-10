@@ -1,0 +1,665 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="230" xmlns:xlink="http://www.w3.org/1999/xlink" joint-selector="svg" id="v-10768" viewBox="200 130 260 230"><style id="v-10769" type="text/css"><![CDATA[/* state */
+:root {
+  --state-light-fill-color: #cedcea;
+  --state-light-stroke-color: #bdcbd9;
+  --state-light-text-color: #555555;
+}
+
+.joint-type-state.joint-theme-default {
+  fill: var(--state-light-fill-color);
+  stroke: var(--state-light-stroke-color);
+}
+
+.joint-type-state.joint-theme-default text {
+  stroke: none;
+}
+
+.joint-type-state.joint-theme-default text:not([fill]) {
+  fill: var(--state-light-text-color);
+}
+
+.button-state-fill-color.v-theme--light {
+  background-color: var(--state-light-fill-color);
+}
+
+.button-state-border-color.v-theme--light {
+  background-color: var(--state-light-stroke-color);
+}
+
+.button-state-name-color.v-theme--light {
+  background-color: var(--state-light-text-color);
+}
+
+/* region */
+:root {
+  --region-light-fill-color: #f2f2f2;
+  --region-light-stroke-color: #cedcea;
+  --region-light-text-color: #555555;
+}
+
+.joint-type-region.joint-theme-default {
+  fill: var(--region-light-fill-color);
+  stroke: var(--region-light-stroke-color);
+}
+
+.joint-type-region.joint-theme-default text {
+  stroke: none;
+}
+
+.joint-type-region.joint-theme-default text:not([fill]) {
+  fill: var(--region-light-text-color);
+}
+
+.button-region-fill-color.v-theme--light {
+  background-color: var(--region-light-fill-color);
+}
+
+.button-region-border-color.v-theme--light {
+  background-color: var(--region-light-stroke-color);
+}
+
+.button-region-name-color.v-theme--light {
+  background-color: var(--region-light-text-color);
+}
+
+/* transition */
+:root {
+  --transition-light-fill-color: #555555;
+  --transition-light-circle-fill-color: #efefef;
+}
+
+.joint-type-transition.joint-theme-default path[joint-selector="line"]:not([stroke]) {
+  stroke: var(--transition-light-fill-color);
+}
+
+.joint-paper.joint-theme-default marker {
+  fill: var(--transition-light-fill-color);
+}
+
+.joint-type-transition.joint-theme-default circle[joint-selector="circleBody"] {
+  stroke: var(--transition-light-fill-color);
+  fill: var(--transition-light-circle-fill-color);
+}
+
+.joint-type-transition.joint-theme-default text[joint-selector="label"] {
+  fill: var(--transition-light-fill-color);
+}
+
+/* pseudo state */
+:root {
+  --pseudo-state-light-fill-color: #555555;
+  --pseudo-state-light-background-color: #efefef;
+}
+
+/* final */
+.joint-type-final.joint-theme-default {
+  fill: var(--pseudo-state-light-fill-color);
+}
+
+.joint-type-final.joint-theme-default circle[joint-selector="innerWhite"]:not([fill]) {
+  fill: var(--pseudo-state-light-background-color);
+}
+
+/* entry*/
+.joint-type-entry.joint-theme-default {
+  fill: var(--pseudo-state-light-fill-color);
+}
+
+.joint-type-entry.joint-theme-default path {
+  fill: var(--pseudo-state-light-background-color);
+}
+
+.joint-type-entry.joint-theme-default path[joint-selector="star"] {
+  stroke: var(--pseudo-state-light-fill-color);
+}
+
+/* exit */
+.joint-type-exit.joint-theme-default {
+  fill: var(--pseudo-state-light-fill-color);
+}
+
+.joint-type-exit.joint-theme-default circle[joint-selector="innerWhite"]:not([fill]) {
+  fill: var(--pseudo-state-light-background-color);
+}
+
+/* choice */
+.joint-type-choice.joint-theme-default {
+  fill: var(--pseudo-state-light-fill-color);
+}
+
+.joint-type-choice.joint-theme-default circle[joint-selector="innerWhite"] {
+  fill: var(--pseudo-state-light-background-color);
+}
+
+/* synchronization */
+.joint-type-synchronization.joint-theme-default {
+  fill: var(--pseudo-state-light-fill-color);
+}
+
+.joint-text-editor.joint-theme-default .caret {
+  background-color: var(--state-light-text-color) !important;
+}
+
+/* nodelabel */
+.joint-type-nodelabel.joint-theme-default text:not([fill]) {
+  fill: var(--state-light-text-color);
+}
+
+/* state */
+:root {
+  --state-dark-fill-color: #545454;
+  --state-dark-stroke-color: #434343;
+  --state-dark-text-color: #cfd8dc;
+}
+
+.joint-type-state.joint-theme-dark {
+  fill: var(--state-dark-fill-color);
+  stroke: var(--state-dark-stroke-color);
+}
+
+.joint-type-state.joint-theme-dark text {
+  stroke: none;
+}
+
+.joint-type-state.joint-theme-dark text:not([fill]) {
+  fill: var(--state-dark-text-color);
+}
+
+.button-state-fill-color.v-theme--dark {
+  background-color: var(--state-dark-fill-color);
+}
+
+.button-state-border-color.v-theme--dark {
+  background-color: var(--state-dark-stroke-color);
+}
+
+.button-state-name-color.v-theme--dark {
+  background-color: var(--state-dark-text-color);
+}
+
+/* region */
+:root {
+  --region-dark-fill-color: #2d2d2d;
+  --region-dark-stroke-color: #545454;
+  --region-dark-text-color: #cfd8dc;
+}
+
+.joint-type-region.joint-theme-dark {
+  fill: var(--region-dark-fill-color);
+  stroke: var(--region-dark-stroke-color);
+}
+
+.joint-type-region.joint-theme-dark text {
+  stroke: none;
+}
+
+.joint-type-region.joint-theme-dark text:not([fill]) {
+  fill: var(--region-dark-text-color);
+}
+
+.button-region-fill-color.v-theme--dark {
+  background-color: var(--region-dark-fill-color);
+}
+
+.button-region-border-color.v-theme--dark {
+  background-color: var(--region-dark-stroke-color);
+}
+
+.button-region-name-color.v-theme--dark {
+  background-color: var(--region-dark-text-color);
+}
+
+/* transition */
+:root {
+  --transition-dark-fill-color: #cfd8dc;
+  --transition-dark-circle-fill-color: #545454;
+}
+
+line[joint-selector="subdiagram-transition"]:not([stroke]),
+.joint-type-transition.joint-theme-dark path[joint-selector="line"]:not([stroke]) {
+  stroke: var(--transition-dark-fill-color);
+}
+
+.joint-paper.joint-theme-dark marker {
+  fill: var(--transition-dark-fill-color);
+}
+
+.joint-type-transition.joint-theme-dark circle[joint-selector="circleBody"] {
+  stroke: var(--transition-dark-fill-color);
+  fill: var(--transition-dark-circle-fill-color);
+}
+
+.joint-type-transition.joint-theme-dark text[joint-selector="label"] {
+  fill: var(--transition-dark-fill-color);
+}
+
+/* pseudo state */
+:root {
+  --pseudo-state-dark-fill-color: #cfd8dc;
+  --pseudo-state-dark-background-color: #212121;
+}
+
+/* entry */
+.joint-type-entry.joint-theme-dark {
+  fill: var(--pseudo-state-dark-fill-color);
+}
+
+.joint-type-entry.joint-theme-dark path {
+  fill: var(--pseudo-state-dark-background-color);
+}
+
+.joint-type-entry.joint-theme-dark path[joint-selector="star"] {
+  stroke: var(--pseudo-state-dark-fill-color);
+}
+
+/* final */
+.joint-type-final.joint-theme-dark {
+  fill: var(--pseudo-state-dark-fill-color);
+}
+
+.joint-type-final.joint-theme-dark circle[joint-selector="innerWhite"]:not([fill]) {
+  fill: var(--pseudo-state-dark-background-color);
+}
+
+/* exit */
+.joint-type-exit.joint-theme-dark {
+  fill: var(--pseudo-state-dark-fill-color);
+}
+
+.joint-type-exit.joint-theme-dark circle[joint-selector="innerWhite"]:not([fill]) {
+  fill: var(--pseudo-state-dark-background-color);
+}
+
+/* choice */
+.joint-type-choice.joint-theme-dark {
+  fill: var(--pseudo-state-dark-fill-color);
+}
+
+.joint-type-choice.joint-theme-dark circle[joint-selector="innerWhite"] {
+  fill: var(--pseudo-state-dark-background-color);
+}
+
+/* synchronization */
+.joint-type-synchronization.joint-theme-dark {
+  fill: var(--pseudo-state-dark-fill-color);
+}
+
+.joint-text-editor.joint-theme-dark .caret {
+  background-color: var(--state-dark-text-color) !important;
+}
+
+/* nodelabel */
+.joint-type-nodelabel.joint-theme-dark text:not([fill]) {
+  fill: var(--state-dark-text-color);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.editor {
+  position: inherit !important;
+}
+
+.ace_error_marker {
+  position: absolute;
+  border-bottom: 1px solid red;
+}
+
+.ace_warning_marker {
+  position: absolute;
+  border-bottom: 1px solid yellow;
+}
+
+.ace_gutter-cell {
+  padding-left: 3px !important;
+}
+
+.ace_gutter {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.ace_hidden-cursors {
+  opacity: 0;
+}
+
+@keyframes timeout {
+  to {
+    visibility: visible;
+  }
+}
+
+.ace_tooltip {
+  animation: timeout 0s 1s forwards;
+  white-space: initial !important;
+  font-size: 10px;
+  width: 350px;
+  visibility: hidden;
+  background-image: none;
+  border: 0px;
+  padding: 0px;
+}
+
+.ace_tooltip_light {
+  padding: 3px;
+  border: 1px #c1c1c1 solid;
+}
+
+.ace_tooltip_dark {
+  padding: 3px;
+  border: 1px #484747 solid;
+  background: #25282c;
+  color: #c1c1c1;
+}
+
+/** Workaround, the theme does not provide the correct dark mode autocomplete styles **/
+
+.ace_dark.ace_editor.ace_autocomplete {
+  border: 1px #484747 solid;
+  box-shadow: 2px 3px 5px rgb(0 0 0 / 51%);
+  line-height: 1.4;
+  background: #25282c;
+  color: #c1c1c1;
+}
+
+.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {
+  background-color: #3a674e;
+}
+
+.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_line-hover {
+  background-color: #3a674e;
+}
+
+.ace_bracket {
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.ace_editor {
+  border: 0.5px solid transparent;
+}
+
+.ace_editor:hover {
+  border-color: var(--state-light-stroke-color);
+}
+.ace_dark.ace_editor:hover {
+  border-color: var(--state-dark-stroke-color);
+}
+
+.ace_editor.hover-disabled:hover {
+  border-color: transparent;
+}
+
+.ace_dark .ace_editor.hover-disabled:hover {
+  border-color: transparent;
+}
+
+.ace-editor foreignObject {
+  overflow: visible !important;
+}
+
+.ace-highlighter-editor {
+  overflow: visible !important;
+  transform: translateY(-11px); /* Adjust the position of the editor to align with the text */
+}
+
+.ace-tomorrow .ace_gutter {
+  background: #f6f6f6;
+  color: #4D4D4C
+}
+
+.ace-tomorrow .ace_print-margin {
+  width: 1px;
+  background: #f6f6f6
+}
+
+.ace-tomorrow {
+  background-color: #FFFFFF;
+  color: #4D4D4C
+}
+
+.ace-tomorrow .ace_cursor {
+  color: #AEAFAD
+}
+
+.ace-tomorrow .ace_marker-layer .ace_selection {
+  background: #D6D6D6
+}
+
+.ace-tomorrow.ace_multiselect .ace_selection.ace_start {
+  box-shadow: 0 0 3px 0px #FFFFFF;
+}
+
+.ace-tomorrow .ace_marker-layer .ace_step {
+  background: rgb(255, 255, 0)
+}
+
+.ace-tomorrow .ace_marker-layer .ace_bracket {
+  margin: -1px 0 0 -1px;
+  border: 1px solid #D1D1D1
+}
+
+.ace-tomorrow .ace_marker-layer .ace_active-line {
+  background: #EFEFEF
+}
+
+.ace-tomorrow .ace_gutter-active-line {
+  background-color : #dcdcdc
+}
+
+.ace-tomorrow .ace_marker-layer .ace_selected-word {
+  border: 1px solid #D6D6D6
+}
+
+.ace-tomorrow .ace_invisible {
+  color: #D1D1D1
+}
+
+.ace-tomorrow .ace_keyword,
+.ace-tomorrow .ace_meta,
+.ace-tomorrow .ace_storage,
+.ace-tomorrow .ace_storage.ace_type,
+.ace-tomorrow .ace_support.ace_type {
+  color: #8959A8
+}
+
+.ace-tomorrow .ace_keyword.ace_operator {
+  color: #3E999F
+}
+
+.ace-tomorrow .ace_constant.ace_character,
+.ace-tomorrow .ace_constant.ace_language,
+.ace-tomorrow .ace_constant.ace_numeric,
+.ace-tomorrow .ace_keyword.ace_other.ace_unit,
+.ace-tomorrow .ace_support.ace_constant,
+.ace-tomorrow .ace_variable.ace_parameter {
+  color: #F5871F
+}
+
+.ace-tomorrow .ace_constant.ace_other {
+  color: #666969
+}
+
+.ace-tomorrow .ace_invalid {
+  color: #FFFFFF;
+  background-color: #C82829
+}
+
+.ace-tomorrow .ace_invalid.ace_deprecated {
+  color: #FFFFFF;
+  background-color: #8959A8
+}
+
+.ace-tomorrow .ace_fold {
+  background-color: #4271AE;
+  border-color: #4D4D4C
+}
+
+.ace-tomorrow .ace_entity.ace_name.ace_function,
+.ace-tomorrow .ace_support.ace_function,
+.ace-tomorrow .ace_variable {
+  color: #4271AE
+}
+
+.ace-tomorrow .ace_support.ace_class,
+.ace-tomorrow .ace_support.ace_type {
+  color: #C99E00
+}
+
+.ace-tomorrow .ace_heading,
+.ace-tomorrow .ace_markup.ace_heading,
+.ace-tomorrow .ace_string {
+  color: #718C00
+}
+
+.ace-tomorrow .ace_entity.ace_name.ace_tag,
+.ace-tomorrow .ace_entity.ace_other.ace_attribute-name,
+.ace-tomorrow .ace_meta.ace_tag,
+.ace-tomorrow .ace_string.ace_regexp,
+.ace-tomorrow .ace_variable {
+  color: #C82829
+}
+
+.ace-tomorrow .ace_comment {
+  color: #8E908C
+}
+
+.ace-tomorrow .ace_indent-guide {
+  background: url("../tomorrow-1.png") right repeat-y
+}
+
+.ace-tomorrow .ace_indent-guide-active {
+  background: url("../tomorrow-2.png") right repeat-y;
+} 
+
+.ace-monokai .ace_gutter {
+  background: #2F3129;
+  color: #8F908A
+}
+
+.ace-monokai .ace_print-margin {
+  width: 1px;
+  background: #555651
+}
+
+.ace-monokai {
+  background-color: #272822;
+  color: #F8F8F2
+}
+
+.ace-monokai .ace_cursor {
+  color: #F8F8F0
+}
+
+.ace-monokai .ace_marker-layer .ace_selection {
+  background: #49483E
+}
+
+.ace-monokai.ace_multiselect .ace_selection.ace_start {
+  box-shadow: 0 0 3px 0px #272822;
+}
+
+.ace-monokai .ace_marker-layer .ace_step {
+  background: rgb(102, 82, 0)
+}
+
+.ace-monokai .ace_marker-layer .ace_bracket {
+  margin: -1px 0 0 -1px;
+  border: 1px solid #49483E
+}
+
+.ace-monokai .ace_marker-layer .ace_active-line {
+  background: #202020
+}
+
+.ace-monokai .ace_gutter-active-line {
+  background-color: #272727
+}
+
+.ace-monokai .ace_marker-layer .ace_selected-word {
+  border: 1px solid #49483E
+}
+
+.ace-monokai .ace_invisible {
+  color: #52524d
+}
+
+.ace-monokai .ace_entity.ace_name.ace_tag,
+.ace-monokai .ace_keyword,
+.ace-monokai .ace_meta.ace_tag,
+.ace-monokai .ace_storage {
+  color: #F92672
+}
+
+.ace-monokai .ace_punctuation,
+.ace-monokai .ace_punctuation.ace_tag {
+  color: #fff
+}
+
+.ace-monokai .ace_constant.ace_character,
+.ace-monokai .ace_constant.ace_language,
+.ace-monokai .ace_constant.ace_numeric,
+.ace-monokai .ace_constant.ace_other {
+  color: #AE81FF
+}
+
+.ace-monokai .ace_invalid {
+  color: #F8F8F0;
+  background-color: #F92672
+}
+
+.ace-monokai .ace_invalid.ace_deprecated {
+  color: #F8F8F0;
+  background-color: #AE81FF
+}
+
+.ace-monokai .ace_support.ace_constant,
+.ace-monokai .ace_support.ace_function {
+  color: #66D9EF
+}
+
+.ace-monokai .ace_fold {
+  background-color: #A6E22E;
+  border-color: #F8F8F2
+}
+
+.ace-monokai .ace_storage.ace_type,
+.ace-monokai .ace_support.ace_class,
+.ace-monokai .ace_support.ace_type {
+  font-style: italic;
+  color: #66D9EF
+}
+
+.ace-monokai .ace_entity.ace_name.ace_function,
+.ace-monokai .ace_entity.ace_other,
+.ace-monokai .ace_entity.ace_other.ace_attribute-name,
+.ace-monokai .ace_variable {
+  color: #A6E22E
+}
+
+.ace-monokai .ace_variable.ace_parameter {
+  font-style: italic;
+  color: #FD971F
+}
+
+.ace-monokai .ace_string {
+  color: #E6DB74
+}
+
+.ace-monokai .ace_comment {
+  color: #75715E
+}
+
+.ace-monokai .ace_indent-guide {
+  background: url("../monokai-1.png") right repeat-y
+}
+
+.ace-monokai .ace_indent-guide-active {
+  background: url("../monokai-2.png") right repeat-y;
+}
+]]></style><defs><marker id="targetMarker" viewBox="0 -2 4 4" refX="3" refY="0" markerWidth="3" markerHeight="4" orient="auto"><path d="M0,-2 L4,0 L0,2 Z"/></marker></defs><style id="v-2" type="text/css"><![CDATA[
+        .joint-element .scalable * {
+            vector-effect: non-scaling-stroke;
+        }
+    ]]></style><defs joint-selector="defs"><marker id="v-1-231967876" orient="auto" overflow="visible" markerUnits="userSpaceOnUse"><path id="v-221" transform="rotate(180)" d="M 8 -4 0 0 8 4 z"/></marker><filter id="dropShadowv-1-1722509975" filterUnits="userSpaceOnUse"><feDropShadow stdDeviation="3" dx="0" dy="6" flood-color="black" flood-opacity="0.2"/></filter></defs><g joint-selector="layers" class="joint-layers"><g class="joint-back-layer"/><g class="joint-cells-layer joint-cells joint-viewport" style="user-select: none;"><g model-id="78749915-0da0-40a2-862f-9e8d94c7c68e" data-type="Statechart" id="j_98" class="joint-cell joint-type-statechart joint-element joint-theme-default" transform="translate(0,0)" display=""><rect joint-selector="body" id="v-10701" fill-opacity="1"/></g><!--z-index:2--><g model-id="a4d257fe-72cb-4334-9a1f-b5a8b4f886fb" data-type="Entry" id="j_99" class="joint-cell joint-type-entry joint-element joint-theme-default" magnet-selector="circle" transform="translate(222.5,130)" display=""><circle joint-selector="circle" id="v-10702" cx="7.5" cy="7.5" r="7.5"/></g><!--z-index:3--><g model-id="f70f632c-e54d-4002-9ec5-7baec620de10" data-type="NodeLabel" id="j_100" class="joint-cell joint-type-nodelabel joint-element joint-theme-default" transform="translate(222.5,145)" display=""><rect joint-selector="body" id="v-10704" pointer-events="none" opacity="0"/><text joint-selector="label" id="v-10703" font-size="10" xml:space="preserve" display="none" pointer-events="all" font-weight="bold" font-family="'Roboto Mono', monospace" text-anchor="middle" transform="matrix(1,0,0,1,7.5,7.5)"><tspan dy="0.3em" style="fill-opacity: 0; stroke-opacity: 0;" class="v-line v-empty-line">-</tspan></text></g><!--z-index:4--><g model-id="36b8548a-74b1-4925-ae23-291c03231ee6" data-type="State" id="j_101" class="joint-cell joint-type-state joint-element joint-theme-default" magnet-selector="body" transform="translate(200,200)" display=""><rect joint-selector="body" id="v-10705" stroke-width="1" stroke-dasharray="none" rx="5" fill-opacity="1" width="60" height="60"/><g joint-selector="namegroup"><rect joint-selector="namebg" id="v-10707" fill="transparent" stroke="transparent" stroke-width="0.4" height="15px" cursor="grab" width="56" transform="matrix(1,0,0,1,2,7)"/><text joint-selector="name" id="v-10706" font-weight="Bold" font-family="'Roboto Mono', monospace" font-size="11" xml:space="preserve" text-anchor="middle" display="inline" text="StateA" transform="matrix(1,0,0,1,30,15)"><tspan dy="0.3em" class="v-line">StateA</tspan></text></g><g class="ace-editor"><foreignObject x="1.75" y="24" width="56.5" height="33"><div xmlns="http://www.w3.org/1999/xhtml" id="ace-highlighter-36b8548a-74b1-4925-ae23-291c03231ee6" class="ace-highlighter-editor ace_editor ace_hidpi ace-tomorrow" style="width: 56.5px; height: 33px; pointer-events: auto; background: rgba(255, 255, 255, 0); font-family: &quot;Roboto Mono&quot;, monospace; font-size: 10px;"><textarea class="ace_text-input" wrap="off" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-haspopup="false" aria-autocomplete="both" role="textbox" aria-label="Cursor at row 1" style="opacity: 0; font-size: 1px; height: 1px; width: 1px; transform: translate(2px, 14px); pointer-events: none;" readonly=""></textarea><div class="ace_gutter" aria-hidden="true" style="display: none; left: 0px; pointer-events: none; width: 17px;"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="height: 1e+06px; transform: translate(0px, 0px); width: 17px;"><div class="ace_gutter-cell ace_gutter-active-line " aria-hidden="true" style="height: 14px; top: 0px;"><span tabindex="0" style="display: none;"></span><span tabindex="0" style="display: none;"><span></span></span></div></div></div><div class="ace_scroller " style="line-height: 14px; left: 0px; right: 0px; bottom: 0px; pointer-events: none;"><div class="ace_content" style="transform: translate(0px, 0px); width: 55px; height: 59px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 482px; visibility: hidden;"></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_text-layer" style="height: 1e+06px; margin: 0px 2px; transform: translate(0px, 0px);"><div class="ace_line_group" style="height: 14px; top: 0px;"><div class="ace_line" style="height: 14px;"></div></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor" style="display: block; transform: translate(2px, 0px); width: 6px; height: 14px;"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 15px; height: 31px; bottom: 0px; pointer-events: none;"><div class="ace_scrollbar-inner" style="width: 15px; height: 14px;"> </div></div><div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 15px; left: 0px; right: 0px; width: 55px; pointer-events: none;"><div class="ace_scrollbar-inner" style="height: 15px; width: 55px;"> </div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden; pointer-events: none;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;">הההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההה</div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div><div class="ace_tooltip ace_gutter-tooltip" tabindex="-1" role="tooltip" id="gt145" style="display: none; white-space: pre-wrap; pointer-events: none;"></div></div></foreignObject></g></g><!--z-index:5--><g model-id="db372094-acc6-467b-b44d-495606208445" data-type="State" id="j_102" class="joint-cell joint-type-state joint-element joint-theme-default" magnet-selector="body" transform="translate(400,300)" display=""><rect joint-selector="body" id="v-10710" stroke-width="1" stroke-dasharray="none" rx="5" fill-opacity="1" width="60" height="60"/><g joint-selector="namegroup"><rect joint-selector="namebg" id="v-10712" fill="transparent" stroke="transparent" stroke-width="0.4" height="15px" cursor="grab" width="56" transform="matrix(1,0,0,1,2,7)"/><text joint-selector="name" id="v-10711" font-weight="Bold" font-family="'Roboto Mono', monospace" font-size="11" xml:space="preserve" text-anchor="middle" display="inline" text="StateB" transform="matrix(1,0,0,1,30,15)"><tspan dy="0.3em" class="v-line">StateB</tspan></text></g><g class="ace-editor"><foreignObject x="1.75" y="24" width="56.5" height="33"><div xmlns="http://www.w3.org/1999/xhtml" id="ace-highlighter-db372094-acc6-467b-b44d-495606208445" class="ace-highlighter-editor ace_editor ace_hidpi ace-tomorrow" style="width: 56.5px; height: 33px; pointer-events: auto; background: rgba(255, 255, 255, 0); font-family: &quot;Roboto Mono&quot;, monospace; font-size: 10px;"><textarea class="ace_text-input" wrap="off" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-haspopup="false" aria-autocomplete="both" role="textbox" aria-label="Cursor at row 1" style="opacity: 0; font-size: 1px; height: 1px; width: 1px; transform: translate(2px, 14px); pointer-events: none;" readonly=""></textarea><div class="ace_gutter" aria-hidden="true" style="display: none; left: 0px; pointer-events: none; width: 17px;"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="height: 1e+06px; transform: translate(0px, 0px); width: 17px;"><div class="ace_gutter-cell ace_gutter-active-line " aria-hidden="true" style="height: 14px; top: 0px;"><span tabindex="0" style="display: none;"></span><span tabindex="0" style="display: none;"><span></span></span></div></div></div><div class="ace_scroller " style="line-height: 14px; left: 0px; right: 0px; bottom: 0px; pointer-events: none;"><div class="ace_content" style="transform: translate(0px, 0px); width: 55px; height: 59px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 482px; visibility: hidden;"></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_text-layer" style="height: 1e+06px; margin: 0px 2px; transform: translate(0px, 0px);"><div class="ace_line_group" style="height: 14px; top: 0px;"><div class="ace_line" style="height: 14px;"></div></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor" style="display: block; transform: translate(2px, 0px); width: 6px; height: 14px;"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 15px; height: 31px; bottom: 0px; pointer-events: none;"><div class="ace_scrollbar-inner" style="width: 15px; height: 14px;"> </div></div><div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 15px; left: 0px; right: 0px; width: 55px; pointer-events: none;"><div class="ace_scrollbar-inner" style="height: 15px; width: 55px;"> </div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden; pointer-events: none;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;">הההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההה</div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div><div class="ace_tooltip ace_gutter-tooltip" tabindex="-1" role="tooltip" id="gt146" style="display: none; white-space: pre-wrap; pointer-events: none;"></div></div></foreignObject></g></g><!--z-index:6--><g model-id="9b5ce41b-0116-46a8-a603-ea4119c6e5d7" data-type="Transition" id="j_103" class="joint-cell joint-type-transition joint-link joint-theme-default" display=""><path fill="none" cursor="pointer" joint-selector="outline" id="v-10727" stroke="transparent" stroke-width="10" stroke-linejoin="round" d="M 230 145 L 230 200"/><path fill="none" pointer-events="none" joint-selector="line" id="v-10726" stroke-width="1" stroke-linejoin="round" d="M 230 145 L 230 200" marker-end="url(#v-1-231967876)"/><g id="v-10715" class="labels"><g id="v-10716" class="label" label-idx="0" cursor="move" transform="matrix(1,0,0,1,245,172.5)"><rect joint-selector="rect" id="v-10721" fill="#ffffff" rx="3" ry="3" x="-3.0027194023132324" y="-7.9813737869262695" width="6.005438804626465" height="13.42167854309082" opacity="0"/><text joint-selector="text" id="v-10720" font-size="10" xml:space="preserve" fill="#000000" text-anchor="middle" pointer-events="none" stroke-width="1" font-family="'Roboto Mono', monospace" cursor="text" opacity="0" font-weight="normal"><tspan dy="0.3em" style="fill-opacity: 0; stroke-opacity: 0;" class="v-line v-empty-line">-</tspan></text></g><g id="v-10717" class="label" label-idx="1" cursor="pointer" draggable="false" opacity="0" transform="matrix(1,0,0,1,230,151)"><circle joint-selector="circleBody" id="v-10723" stroke-width="1" r="5"/><text joint-selector="label" id="v-10722" font-size="7" xml:space="preserve" type="number" text-anchor="middle"><tspan dy="0.3em" class="v-line">1</tspan></text></g><g id="v-10718" class="label" label-idx="2" cursor="move" transform="matrix(1,0,0,1,230,172.5)"><text joint-selector="label"/></g><g id="v-10719" class="label" label-idx="3" cursor="move" transform="matrix(1,0,0,1,245,172.5)"><rect joint-selector="rect" id="v-10725" fill="#ffffff" rx="3" ry="3" x="-3.0027194023132324" y="-7.9813737869262695" width="6.005438804626465" height="13.42167854309082" opacity="0"/><text joint-selector="text" id="v-10724" font-size="10" xml:space="preserve" fill="#000000" text-anchor="middle" pointer-events="none" stroke-width="1" font-family="'Roboto Mono', monospace" cursor="text" opacity="0" font-weight="normal"><tspan dy="0.3em" style="fill-opacity: 0; stroke-opacity: 0;" class="v-line v-empty-line">-</tspan></text></g></g><g class="ace-editor"><foreignObject x="241.99728059768677" y="165.5" width="15" height="17" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" id="ace-highlighter-9b5ce41b-0116-46a8-a603-ea4119c6e5d7" class="ace-highlighter-editor ace_editor ace_hidpi ace-tomorrow" model-id="9b5ce41b-0116-46a8-a603-ea4119c6e5d7" style="border-width: 0px; font-size: 10px; background: rgba(255, 255, 255, 0); font-family: &quot;Roboto Mono&quot;, monospace; width: 15px; height: 17px;"><textarea class="ace_text-input" wrap="off" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-haspopup="false" aria-autocomplete="both" role="textbox" aria-label="Cursor at row 1" style="opacity: 0; font-size: 1px; height: 1px; width: 1px; transform: translate(1px, 14px);"></textarea><div class="ace_gutter" aria-hidden="true" style="display: none; left: 0px; width: 17px;"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="height: 1e+06px; transform: translate(0px, 0px); width: 17px;"><div class="ace_gutter-cell ace_gutter-active-line " aria-hidden="true" style="height: 14px; top: 0px;"><span tabindex="0" style="display: none;"></span><span tabindex="0" style="display: none;"><span></span></span></div></div></div><div class="ace_scroller " style="line-height: 14px; left: 0px; right: 0px; bottom: 0px;"><div class="ace_content" style="transform: translate(0px, 0px); width: 15px; height: 45px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 481px; visibility: hidden;"></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_text-layer" style="height: 1e+06px; margin: 0px 1px; transform: translate(0px, 0px);"><div class="ace_line_group" style="height: 14px; top: 0px;"><div class="ace_line" style="height: 14px;"></div></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor" style="display: block; transform: translate(1px, 0px); width: 6px; height: 14px;"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 15px; height: 17px; bottom: 0px;"><div class="ace_scrollbar-inner" style="width: 15px; height: 14px;"> </div></div><div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 15px; left: 0px; right: 0px; width: 15px;"><div class="ace_scrollbar-inner" style="height: 15px; width: 15px;"> </div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;">הההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההה</div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div><div class="ace_tooltip ace_gutter-tooltip" tabindex="-1" role="tooltip" id="gt147" style="display: none; white-space: pre-wrap; pointer-events: auto;"></div></div></foreignObject></g></g><!--z-index:7--><g model-id="f4fdd1fd-fc69-42a9-a51b-34aeb2fd7fe4" data-type="Transition" id="j_104" class="joint-cell joint-type-transition joint-link joint-theme-default" display=""><path fill="none" cursor="pointer" joint-selector="outline" id="v-10740" stroke="transparent" stroke-width="10" stroke-linejoin="round" d="M 260 230 L 420 230 C 426.66666666666663 229.99999999999997 429.99999999999994 233.33333333333331 430 240 L 430 300"/><path fill="none" pointer-events="none" joint-selector="line" id="v-10739" stroke-width="1" stroke-linejoin="round" d="M 260 230 L 420 230 C 426.66666666666663 229.99999999999997 429.99999999999994 233.33333333333331 430 240 L 430 300" marker-end="url(#v-1-231967876)"/><g id="v-10728" class="labels"><g id="v-10729" class="label" label-idx="0" cursor="move" transform="matrix(1,0,0,1,378.1153259277344,215)"><rect joint-selector="rect" id="v-10734" fill="#ffffff" rx="3" ry="3" x="-26.9768123626709" y="-7.9813737869262695" width="54.05297088623047" height="13.42167854309082" opacity="0"/><text joint-selector="text" id="v-10733" font-size="10" xml:space="preserve" fill="#000000" text-anchor="middle" pointer-events="none" stroke-width="1" font-family="'Roboto Mono', monospace" cursor="text" opacity="0" font-weight="normal"><tspan dy="0.3em" class="v-line">after 1 s</tspan></text></g><g id="v-10730" class="label" label-idx="1" cursor="pointer" draggable="false" opacity="0" transform="matrix(1,0,0,1,266,230)"><circle joint-selector="circleBody" id="v-10736" stroke-width="1" r="5"/><text joint-selector="label" id="v-10735" font-size="7" xml:space="preserve" type="number" text-anchor="middle"><tspan dy="0.3em" class="v-line">1</tspan></text></g><g id="v-10731" class="label" label-idx="2" cursor="move" transform="matrix(1,0,0,1,378.1153259277344,230)"><text joint-selector="label"/></g><g id="v-10732" class="label" label-idx="3" cursor="move" transform="matrix(1,0,0,1,378.1153259277344,215)"><rect joint-selector="rect" id="v-10738" fill="#ffffff" rx="3" ry="3" x="-3.0027194023132324" y="-7.9813737869262695" width="6.005438804626465" height="13.42167854309082" opacity="0"/><text joint-selector="text" id="v-10737" font-size="10" xml:space="preserve" fill="#000000" text-anchor="middle" pointer-events="none" stroke-width="1" font-family="'Roboto Mono', monospace" cursor="text" opacity="0" font-weight="normal"><tspan dy="0.3em" style="fill-opacity: 0; stroke-opacity: 0;" class="v-line v-empty-line">-</tspan></text></g></g><g class="ace-editor"><foreignObject x="351.0772457122803" y="208" width="57.0761604309082" height="17" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" id="ace-highlighter-f4fdd1fd-fc69-42a9-a51b-34aeb2fd7fe4" class="ace-highlighter-editor ace_editor ace_hidpi ace-tomorrow" model-id="f4fdd1fd-fc69-42a9-a51b-34aeb2fd7fe4" style="border-width: 0px; font-size: 10px; background: rgba(255, 255, 255, 0); font-family: &quot;Roboto Mono&quot;, monospace; width: 57.0762px; height: 17px;"><textarea class="ace_text-input" wrap="off" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-haspopup="false" aria-autocomplete="both" role="textbox" aria-label="Cursor at row 1" style="opacity: 0; font-size: 1px; height: 1px; width: 1px; transform: translate(1px, 14px);"></textarea><div class="ace_gutter" aria-hidden="true" style="display: none; left: 0px;"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="height: 1e+06px;"></div></div><div class="ace_scroller " style="line-height: 14px; left: 0px; right: 0px; bottom: 0px;"><div class="ace_content" style="transform: translate(0px, 0px); width: 57px; height: 45px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 481px; visibility: hidden;"></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_text-layer" style="height: 1e+06px; margin: 0px 1px; transform: translate(0px, 0px);"><div class="ace_line_group" style="height: 14px; top: 0px;"><div class="ace_line" style="height: 14px;"><span class="ace_support ace_function">after</span> <span class="ace_constant ace_numeric">1</span> <span class="ace_support ace_function">s</span></div></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor" style="display: block; transform: translate(1px, 0px); width: 6px; height: 14px;"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 15px; height: 17px; bottom: 0px;"><div class="ace_scrollbar-inner" style="width: 15px; height: 14px;"> </div></div><div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 15px; left: 0px; right: 0px; width: 57px;"><div class="ace_scrollbar-inner" style="height: 15px; width: 57px;"> </div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;">הההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההה</div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div><div class="ace_tooltip ace_gutter-tooltip" tabindex="-1" role="tooltip" id="gt148" style="display: none; white-space: pre-wrap; pointer-events: auto;"></div></div></foreignObject></g></g><!--z-index:8--><g model-id="7197094a-c890-4098-9170-1701f27ac3cb" data-type="Transition" id="j_105" class="joint-cell joint-type-transition joint-link joint-theme-default" display=""><path fill="none" cursor="pointer" joint-selector="outline" id="v-10753" stroke="transparent" stroke-width="10" stroke-linejoin="round" d="M 400 330 L 240 330 C 233.33333333333331 330 229.99999999999997 326.66666666666663 230 320 L 230 260"/><path fill="none" pointer-events="none" joint-selector="line" id="v-10752" stroke-width="1" stroke-linejoin="round" d="M 400 330 L 240 330 C 233.33333333333331 330 229.99999999999997 326.66666666666663 230 320 L 230 260" marker-end="url(#v-1-231967876)"/><g id="v-10741" class="labels"><g id="v-10742" class="label" label-idx="0" cursor="move" transform="matrix(1,0,0,1,281.8846740722656,345)"><rect joint-selector="rect" id="v-10747" fill="#ffffff" rx="3" ry="3" x="-20.980905532836914" y="-7.9813737869262695" width="42.064918518066406" height="13.42167854309082" opacity="0"/><text joint-selector="text" id="v-10746" font-size="10" xml:space="preserve" fill="#000000" text-anchor="middle" pointer-events="none" stroke-width="1" font-family="'Roboto Mono', monospace" cursor="text" opacity="0" font-weight="normal"><tspan dy="0.3em" class="v-line">myEvent</tspan></text></g><g id="v-10743" class="label" label-idx="1" cursor="pointer" draggable="false" opacity="0" transform="matrix(1,0,0,1,394,330)"><circle joint-selector="circleBody" id="v-10749" stroke-width="1" r="5"/><text joint-selector="label" id="v-10748" font-size="7" xml:space="preserve" type="number" text-anchor="middle"><tspan dy="0.3em" class="v-line">1</tspan></text></g><g id="v-10744" class="label" label-idx="2" cursor="move" transform="matrix(1,0,0,1,281.8846740722656,330)"><text joint-selector="label"/></g><g id="v-10745" class="label" label-idx="3" cursor="move" transform="matrix(1,0,0,1,281.8846740722656,345)"><rect joint-selector="rect" id="v-10751" fill="#ffffff" rx="3" ry="3" x="-3.0027194023132324" y="-7.9813737869262695" width="6.005438804626465" height="13.42167854309082" opacity="0"/><text joint-selector="text" id="v-10750" font-size="10" xml:space="preserve" fill="#000000" text-anchor="middle" pointer-events="none" stroke-width="1" font-family="'Roboto Mono', monospace" cursor="text" opacity="0" font-weight="normal"><tspan dy="0.3em" style="fill-opacity: 0; stroke-opacity: 0;" class="v-line v-empty-line">-</tspan></text></g></g><g class="ace-editor"><foreignObject x="260.84266662597656" y="338" width="45.084014892578125" height="17" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" id="ace-highlighter-7197094a-c890-4098-9170-1701f27ac3cb" class="ace-highlighter-editor ace_editor ace_hidpi ace-tomorrow" model-id="7197094a-c890-4098-9170-1701f27ac3cb" style="border-width: 0px; font-size: 10px; background: rgba(255, 255, 255, 0); font-family: &quot;Roboto Mono&quot;, monospace; width: 45.084px; height: 17px;"><textarea class="ace_text-input" wrap="off" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-haspopup="false" aria-autocomplete="both" role="textbox" aria-label="Cursor at row 1" style="opacity: 0; font-size: 1px; height: 1px; width: 1px; transform: translate(1px, 14px);"></textarea><div class="ace_gutter" aria-hidden="true" style="display: none; left: 0px;"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="height: 1e+06px;"></div></div><div class="ace_scroller " style="line-height: 14px; left: 0px; right: 0px; bottom: 0px;"><div class="ace_content" style="transform: translate(0px, 0px); width: 45px; height: 45px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 481px; visibility: hidden;"></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_text-layer" style="height: 1e+06px; margin: 0px 1px; transform: translate(0px, 0px);"><div class="ace_line_group" style="height: 14px; top: 0px;"><div class="ace_line" style="height: 14px;"><span class="ace_identifier">myEvent</span></div></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor" style="display: block; transform: translate(1px, 0px); width: 6px; height: 14px;"></div></div></div></div><div class="ace_scrollbar ace_scrollbar-v" style="display: none; width: 15px; height: 17px; bottom: 0px;"><div class="ace_scrollbar-inner" style="width: 15px; height: 14px;"> </div></div><div class="ace_scrollbar ace_scrollbar-h" style="display: none; height: 15px; left: 0px; right: 0px; width: 45px;"><div class="ace_scrollbar-inner" style="height: 15px; width: 45px;"> </div></div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: hidden;"><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font: inherit; overflow: visible;">הההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההההה</div><div style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; overflow: visible;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div><div class="ace_tooltip ace_gutter-tooltip" tabindex="-1" role="tooltip" id="gt149" style="display: none; white-space: pre-wrap; pointer-events: auto;"></div></div></foreignObject></g></g><!--z-index:9--></g><g class="joint-labels-layer joint-viewport" style="user-select: none;"/><g class="joint-front-layer"/><g class="joint-tools-layer"/></g></svg>
