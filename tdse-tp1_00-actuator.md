@@ -4,19 +4,45 @@
 El módulo **Actuator** implementa el control de una salida digital representada usando un LED, por ejemplo: display, printer, barrier y server. Se ejecuta mediante una tarea temporizada <ins> no bloqueante </ins> (Update by Time Code) permitiendo la gestión de la actividad del LED.
 
 
-## Estados (ST_BTN_NAME):
+## Estados (ST_LED_NAME):
 
-- **ST_LED_OFF:**
-- **ST_LED_ON:**
-- **ST_LED_BLINKING:**
-- **ST_LED_PULSE:**
+- **ST_LED_OFF:** Led apagado.
+- **ST_LED_ON:** Led encendido.
+- **ST_LED_BLINKING:** Led alterana periódicamente entre encendido y apagado.
 
 
 ## Eventos de entrada (EV_LED_NAME)
 
-## Acciones (EV_ACT_NAME)
+- **EV_LED_OFF:** Solicitud para mantener el led apagado.
+- **EV_LED_ON:** Solicitud para mantener el led encendido.
+- **EV_LED_BLINKING:** Solicitud para mantener el led alterana periódicamente entre encendido y apagado.
+
+
+## Acciones 
+
+**LED_OFF:** Desactiva la salida digital correspondiente al LED.
+**LED_ON:** Activa la salida digital correspondiente al LED.
+
 
 ## Variables de Control y Tiempos (timer)
+- **tick:** Contador de tiempo incrementado periódicamente cada 1 ms en el ciclo de ejecución, utilizado para controlar la temporización del LED.
+- **DEL_ACT_BLINK:** Tiempo de alternancia para el parpadeo del LED.
+- **led_state:** Variable que almacena la salida actual de **ST_LED_BLINKING**.
+
+# Tabla de Estados y Excitaciones del modelo Actuator
+
+| Current State | Event | [Guard] | Next State | Actions |
+| :--- | :--- | :--- | :--- | :--- |
+| `ST_ACT_DOWN` | `EV_ACT_OPEN` | - | `ST_ACT_RAISING` | `tick = 0,`<br>`tick_blink = 0,`<br>`set_leds(OFF, ON, OFF)` |
+| `ST_ACT_DOWN` | `EV_ACT_CLOSE` | - | `ST_ACT_DOWN` | - |
+| `ST_ACT_RAISING` | - | `[tick < DEL_ACT_TRANSITION]` | `ST_ACT_RAISING` | `[tick_blink >= DEL_ACT_BLINK]`<br>`-> toggle_yellow_led()` <br>`, tick_blink = 0` |
+| `ST_ACT_RAISING` | - | `[tick >= DEL_ACT_TRANSITION]` | `ST_ACT_UP` | `set_leds(OFF, OFF, ON)` |
+| `ST_ACT_UP` | `EV_ACT_CLOSE` | - | `ST_ACT_LOWERING` | `tick = 0,`<br>`tick_blink = 0,`<br>`set_leds(OFF, ON, OFF)` |
+| `ST_ACT_UP` | `EV_ACT_OPEN` | - | `ST_ACT_UP` | - |
+| `ST_ACT_LOWERING` | - | `[tick < DEL_ACT_TRANSITION]` | `ST_ACT_LOWERING` | `[tick_blink >= DEL_ACT_BLINK]`<br>`-> toggle_yellow_led()` <br>`, tick_blink = 0` |
+| `ST_ACT_LOWERING` | - | `[tick >= DEL_ACT_TRANSITION]` | `ST_ACT_DOWN` | `set_leds(ON, OFF, OFF)` |
+
+
 -------------- old ------------
 
 # Descripción del módulo "Actuator"
