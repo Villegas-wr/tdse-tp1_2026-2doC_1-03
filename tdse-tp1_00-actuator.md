@@ -34,11 +34,14 @@ El módulo **Actuator** implementa el control de una salida digital representada
 | Current State | Event | [Guard] | Next State | Actions |
 | :--- | :--- | :--- | :--- | :--- |
 | `ST_LED_OFF` | `EV_LED_ON` | - | `ST_LED_ON` | `LED_ON` |
+| `ST_LED_OFF` | `EV_LED_OFF` | - | `ST_LED_OFF` | - |
 | `ST_LED_OFF` | `EV_LED_BLINK` | - | `ST_LED_BLINKING` | `LED_ON`, `led_state = ON`, `tick = DEL_ACT_BLINK` |
+| `ST_LED_ON` | `EV_LED_ON` | - | `ST_LED_ON` | - |
 | `ST_LED_ON` | `EV_LED_OFF` | - | `ST_LED_OFF` | `LED_OFF` |
 | `ST_LED_ON` | `EV_LED_BLINK` | - | `ST_LED_BLINKING`  | `LED_ON`, `led_state = ON`, `tick = DEL_ACT_BLINK` |
 | `ST_LED_BLINKING` | `EV_LED_OFF` | - | `ST_LED_OFF` | `LED_OFF` |
 | `ST_LED_BLINKING` | `EV_LED_ON` | - | `ST_LED_ON`| `LED_ON` |
+| `ST_LED_BLINKING` | `EV_LED_BLINK` | - | `ST_LED_BLINKING`| - |
 | `ST_LED_BLINKING` | - | `[tick > 0]` | `ST_LED_BLINKING` | `tick--` |
 | `ST_LED_BLINKING` | - | `[tick == 0]` &&<br>  `[led_state == ON]` | `ST_LED_BLINKING` | `LED_OFF`, `led_state = OFF`,<br> `tick = DEL_ACT_BLINK` |
 | `ST_LED_BLINKING` | - | `[tick == 0]` &&<br> `[led_state == OFF]` | `ST_LED_BLINKING` | `LED_ON`, `led_state = ON`,<br> `tick = DEL_ACT_BLINK` |
