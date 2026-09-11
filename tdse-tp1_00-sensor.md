@@ -25,8 +25,8 @@ El módulo **Sensor** implementa una tarea no bloqueante ejecutada periódicamen
 
 ### Señales / Acciones hacia System (EV_SYS_NAME)
 
-- **EV_SYS_PRESSED:** Acción emitida al confirmar que la pulsación es estable.  
-- **EV_SYS_RELEASED:** Acción emitida al confirmar que la liberación es estable.
+- **EV_SYS_BTN_PRESSED:** Acción emitida al confirmar que la pulsación es estable.  
+- **EV_SYS_BTN_RELEASED:** Acción emitida al confirmar que la liberación es estable.
 
 ### Variables de Control y Tiempos (timer)  
 El tick o clock es un contador que va incrementado en cada llamada temporizada de 1 ms. 
@@ -41,12 +41,12 @@ El tick o clock es un contador que va incrementado en cada llamada temporizada d
 
 | Current State | Event | [Guard] | Next State | Actions |
 | :--- | :--- | :--- | :--- | :--- |
-| ST_BTN_UP | EV_BTN_UP | - | ST_BTN_UP | - |
-| ST_BTN_UP | EV_BTN_DOWN | - | ST_BTN_FALLING | tick = 0 |
-| ST_BTN_FALLING | EV_BTN_UP | - | ST_BTN_UP | - |
-| ST_BTN_FALLING | EV_BTN_DOWN | [tick >= DEL_BTN_FALLING] | ST_BTN_DOWN | EV_SYS_PRESSED |
-| ST_BTN_DOWN | EV_BTN_UP | - | ST_BTN_RISING | tick = 0 |
-| ST_BTN_DOWN | EV_BTN_DOWN | - | ST_BTN_DOWN | - |
-| ST_BTN_RISING | EV_BTN_UP | [tick >= DEL_BTN_RISING] | ST_BTN_UP | EV_SYS_RELEASED |
-| ST_BTN_RISING | EV_BTN_DOWN | - | ST_BTN_DOWN | - |
+| `ST_BTN_UP` | `EV_BTN_DOWN` | - | `ST_BTN_FALLING` | `tick = DEL_BTN_FALLING` |
+| `ST_BTN_FALLING` | - | `[tick > 0]` | `ST_BTN_FALLING` | `tick--` |
+| `ST_BTN_FALLING` | `EV_BTN_DOWN` | `[tick == 0]` | `ST_BTN_DOWN` | `EV_SYS_BTN_PRESSED` |
+| `ST_BTN_FALLING` | `EV_BTN_UP` | - | `ST_BTN_UP` | - |
+| `ST_BTN_DOWN` | `EV_BTN_UP` | - | `ST_BTN_RISING` | `tick = DEL_BTN_RISING` |
+| `ST_BTN_RISING` | - | `[tick > 0]` | `ST_BTN_RISING` | `tick--` |
+| `ST_BTN_RISING` | `EV_BTN_UP` | `[tick == 0]` | `ST_BTN_UP` | `EV_SYS_BTN_RELEASED` |
+| `ST_BTN_RISING` | `EV_BTN_DOWN` | - | `ST_BTN_DOWN` | - |
 
