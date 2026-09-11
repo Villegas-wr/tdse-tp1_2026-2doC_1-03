@@ -33,21 +33,14 @@ El módulo **Actuator** implementa el control de una salida digital representada
 
 | Current State | Event | [Guard] | Next State | Actions |
 | :--- | :--- | :--- | :--- | :--- |
-| `ST_LED_OFF` | `EV_LED_OFF` | - | `ST_LED_OFF` | - |
 | `ST_LED_OFF` | `EV_LED_ON` | - | `ST_LED_ON` | `LED_ON` |
-| `ST_LED_OFF` | `EV_LED_BLINK` | - | `ST_LED_BLINKING` | `LED_ON`, tick = 0, led_state = ON  |
+| `ST_LED_OFF` | `EV_LED_BLINK` | - | `ST_LED_BLINKING` | `LED_ON`, `led_state = ON`, `tick = DEL_ACT_BLINK` |
 | `ST_LED_ON` | `EV_LED_OFF` | - | `ST_LED_OFF` | `LED_OFF` |
-| `ST_LED_ON` | `EV_LED_ON` | - | `ST_LED_ON` | - |
-| `ST_LED_ON` | `EV_LED_BLINK` | - | `ST_LED_BLINKING`  | tick = 0, led_state = ON |
+| `ST_LED_ON` | `EV_LED_BLINK` | - | `ST_LED_BLINKING`  | `LED_ON`, `led_state = ON`, `tick = DEL_ACT_BLINK` |
 | `ST_LED_BLINKING` | `EV_LED_OFF` | - | `ST_LED_OFF` | `LED_OFF` |
 | `ST_LED_BLINKING` | `EV_LED_ON` | - | `ST_LED_ON`| `LED_ON` |
-| `ST_LED_BLINKING` |  `EV_LED_BLINK` | - | `ST_LED_BLINKING` | - |
-| `ST_LED_BLINKING` | - | [tick >= DEL_ACT_BLINK && led_state == ON] | `ST_LED_BLINKING` | `LED_OFF`, led_state = OFF, tick = 0 |
-| `ST_LED_BLINKING` | - | [tick >= DEL_ACT_BLINK && led_state == OFF] | `ST_LED_BLINKING` | `LED_ON`, led_state = ON, tick = 0 |
-
-
-`ST_LED_BLINKING` + `EV_LED_BLINK` → `ST_LED_BLINKING` significa que si mientras parpadea el LED y le llega el evento de seguir parpareando no necesita una acción de reiniciar el ciclo, ya que continuará la acción previa. 
-
-`ST_LED_BLINKING` + [tick >= DEL_ACT_BLINK && led_state == ON] → `ST_LED_BLINKING`/ `LED_OFF`, led_state = OFF, tick = 0  significa que mientras parpadea llega al estado ON y el tiempo se cumplió cambia de estado OFF, entonces luego con `ST_LED_BLINKING` + [tick >= DEL_ACT_BLINK && led_state == OFF] → `ST_LED_BLINKING`/`LED_ON`, led_state = ON, tick = 0 realiza lo inverso produciendo un ciclo de parpadeo periódico. 
+| `ST_LED_BLINKING` | - | `[tick > 0]` | `ST_LED_BLINKING` | `tick--` |
+| `ST_LED_BLINKING` | - | `[tick == 0]` &&<br>  `[led_state == ON]` | `ST_LED_BLINKING` | `LED_OFF`, `led_state = OFF`,<br> `tick = DEL_ACT_BLINK` |
+| `ST_LED_BLINKING` | - | `[tick == 0]` &&<br> `[led_state == OFF]` | `ST_LED_BLINKING` | `LED_ON`, `led_state = ON`,<br> `tick = DEL_ACT_BLINK` |
 
 
