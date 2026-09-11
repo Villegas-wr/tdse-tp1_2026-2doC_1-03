@@ -40,11 +40,39 @@ El módulo **System** implementa la lógica de procesamiento del sistema de esta
 
 | Current State | Event | [Guard] | Next State | Actions |
 | :--- | :--- | :--- | :--- | :--- |
-| `ST_SYS_IDLE` | `EV_SYS_CAMERA_DETECTED` | - | `ST_SYS_WAITING_BUTTON` | - | ****
-| `ST_SYS_WAITING_BUTTON` | `EV_SYS_BUTTON_PRESSED` | - | `ST_SYS_BARRIER_OPENING` | `EV_ACT_OPEN_BARRIER`,<br> `tick = DEL_BARRIER` | ****
-| `ST_SYS_BARRIER_OPENING` | - | `[tick > 0]` | `ST_SYS_BARRIER_OPENING` | tick-- |
-| `ST_SYS_BARRIER_OPENING` | - | `[tick == 0]` | `ST_SYS_WAITING_CAR` | `EV_ACT_STOP_BARRIER` |
-| `ST_SYS_WAITING_CAR` | `EV_SYS_COIL_DETECTED` | - | `ST_SYS_WAITING_CAR` | - |
-| `ST_SYS_WAITING_CAR` | `EV_SYS_COIL_CLEARED` | - | `ST_SYS_BARRIER_CLOSING`| `EV_ACT_CLOSE_BARRIER`,<br> `tick = DEL_BARRIER` |
-| `ST_SYS_BARRIER_CLOSING` | - | `[tick > 0]` | `ST_SYS_BARRIER_CLOSING` | tick-- |
-| `ST_SYS_BARRIER_CLOSING` | - | `[ticx == 0]` | `ST_SYS_IDLE` | - |
+| `ST_SYS_IDLE`            | `EV_SYS_BUTTON_PRESSED`  | -           | `ST_SYS_IDLE`            | -                                            |
+| `ST_SYS_IDLE`           | `EV_SYS_BUTTON_RELEASED` | -           | `ST_SYS_IDLE`            | -                                            |
+| `ST_SYS_IDLE`            | `EV_SYS_CAMERA_DETECTED` | -           | `ST_SYS_WAITING_BUTTON`  | -                                            |
+| `ST_SYS_IDLE`            | `EV_SYS_CAMERA_CLEARED`  | -           | `ST_SYS_IDLE`            | -                                            |
+| `ST_SYS_IDLE`            | `EV_SYS_COIL_DETECTED`   | -           | `ST_SYS_IDLE`            | -                                            |
+| `ST_SYS_IDLE`            | `EV_SYS_COIL_CLEARED`    | -           | `ST_SYS_IDLE`            | -                                            |
+| `ST_SYS_WAITING_BUTTON`  | `EV_SYS_BUTTON_PRESSED`  | -           | `ST_SYS_BARRIER_OPENING` | `EV_ACT_OPEN_BARRIER`, tick = DEL_BARRIER  |
+| `ST_SYS_WAITING_BUTTON`  | `EV_SYS_BUTTON_RELEASED` | -           | `ST_SYS_WAITING_BUTTON`  | -                                            |
+| `ST_SYS_WAITING_BUTTON`  | `EV_SYS_CAMERA_DETECTED` | -           | `ST_SYS_WAITING_BUTTON`  | -                                            |
+| `ST_SYS_WAITING_BUTTON`  | `EV_SYS_CAMERA_CLEARED`  | -           | `ST_SYS_WAITING_BUTTON`  | -                                            |
+| `ST_SYS_WAITING_BUTTON`  | `EV_SYS_COIL_DETECTED`   | -           | `ST_SYS_WAITING_BUTTON`  | -                                            |
+| `ST_SYS_WAITING_BUTTON`  | `EV_SYS_COIL_CLEARED`    | -           | `ST_SYS_WAITING_BUTTON`  | -                                            |
+| `ST_SYS_BARRIER_OPENING` | `EV_SYS_BUTTON_PRESSED`  | -           | `ST_SYS_BARRIER_OPENING` | -                                            |
+| `ST_SYS_BARRIER_OPENING` | `EV_SYS_BUTTON_RELEASED` | -           | `ST_SYS_BARRIER_OPENING` | -                                            |
+| `ST_SYS_BARRIER_OPENING` | `EV_SYS_CAMERA_DETECTED` | -           | `ST_SYS_BARRIER_OPENING` | -                                            |
+| `ST_SYS_BARRIER_OPENING` | `EV_SYS_CAMERA_CLEARED`  | -           | `ST_SYS_BARRIER_OPENING` | -                                            |
+| `ST_SYS_BARRIER_OPENING` | `EV_SYS_COIL_DETECTED`   | -           | `ST_SYS_BARRIER_OPENING` | -                                            |
+| `ST_SYS_BARRIER_OPENING` | `EV_SYS_COIL_CLEARED`    | -           | `ST_SYS_BARRIER_OPENING` | -                                            |
+| `ST_SYS_BARRIER_OPENING` | -                        | [tick > 0]  | `ST_SYS_BARRIER_OPENING` | tick--                                     |
+| `ST_SYS_BARRIER_OPENING` | -                        | [tick == 0] | `ST_SYS_WAITING_CAR`     | `EV_ACT_STOP_BARRIER` |
+| `ST_SYS_WAITING_CAR`     | `EV_SYS_BUTTON_PRESSED`  | -           | `ST_SYS_WAITING_CAR`     | -                                            |
+| `ST_SYS_WAITING_CAR`     | `EV_SYS_BUTTON_RELEASED` | -           | `ST_SYS_WAITING_CAR`     | -                                            |
+| `ST_SYS_WAITING_CAR`     | `EV_SYS_CAMERA_DETECTED` | -           | `ST_SYS_WAITING_CAR`     | -                                            |
+| `ST_SYS_WAITING_CAR`     | `EV_SYS_CAMERA_CLEARED`  | -           | `ST_SYS_WAITING_CAR`     | -                                            |
+| `ST_SYS_WAITING_CAR`     | `EV_SYS_COIL_DETECTED`   | -           | `ST_SYS_WAITING_CAR`     | -                                            |
+| `ST_SYS_WAITING_CAR`     | `EV_SYS_COIL_CLEARED`    | -           | `ST_SYS_BARRIER_CLOSING` | `EV_ACT_CLOSE_BARRIER`, tick = DEL_BARRIER |
+| `ST_SYS_BARRIER_CLOSING` | `EV_SYS_BUTTON_PRESSED`  | -           | `ST_SYS_BARRIER_CLOSING` | -                                            |
+| `ST_SYS_BARRIER_CLOSING` | `EV_SYS_BUTTON_RELEASED` | -           | `ST_SYS_BARRIER_CLOSING` | -                                            |
+| `ST_SYS_BARRIER_CLOSING` | `EV_SYS_CAMERA_DETECTED` | -           | `ST_SYS_BARRIER_CLOSING` | -                                            |
+| `ST_SYS_BARRIER_CLOSING` | `EV_SYS_CAMERA_CLEARED`  | -           | `ST_SYS_BARRIER_CLOSING` | -                                            |
+| `ST_SYS_BARRIER_CLOSING` | `EV_SYS_COIL_DETECTED`   | -           | `ST_SYS_BARRIER_CLOSING` | -                                            |
+| `ST_SYS_BARRIER_CLOSING` | `EV_SYS_COIL_CLEARED`    | -           | `ST_SYS_BARRIER_CLOSING` | -                                            |
+| `ST_SYS_BARRIER_CLOSING` | -                        | [tick > 0]  | `ST_SYS_BARRIER_CLOSING` | tick--                                     |
+| `ST_SYS_BARRIER_CLOSING` | -                        | [tick == 0] | `ST_SYS_IDLE`            | -                                            |
+
+
