@@ -46,6 +46,7 @@ El tick o clock es un contador que va incrementado en cada llamada temporizada d
 | `ST_BTN_FALLING` | - | `[tick > 0]` | `ST_BTN_FALLING` | `tick--` |
 | `ST_BTN_FALLING` | `EV_BTN_DOWN` | `[tick == 0]` | `ST_BTN_DOWN` | `EV_SYS_BTN_PRESSED` |
 | `ST_BTN_FALLING` | `EV_BTN_UP` | - | `ST_BTN_UP` | - |
+| `ST_BTN_DOWN` | `EV_BTN_DOWN` | - | `ST_BTN_DOWN` | - |
 | `ST_BTN_DOWN` | `EV_BTN_UP` | - | `ST_BTN_RISING` | `tick = DEL_BTN_RISING` |
 | `ST_BTN_RISING` | - | `[tick > 0]` | `ST_BTN_RISING` | `tick--` |
 | `ST_BTN_RISING` | `EV_BTN_UP` | `[tick == 0]` | `ST_BTN_UP` | `EV_SYS_BTN_RELEASED` |
